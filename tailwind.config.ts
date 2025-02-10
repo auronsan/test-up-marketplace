@@ -1,3 +1,4 @@
+import colors from "tailwindcss/colors";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -9,8 +10,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: colors.sky,
+        secondary: colors.emerald,
+      },
+      animation: {
+        dropIn: "dropIn 0.2s ease-out",
+      },
+      keyframes: {
+        dropIn: {
+          "0%": { transform: "translateY(-100px)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
     },
   },
