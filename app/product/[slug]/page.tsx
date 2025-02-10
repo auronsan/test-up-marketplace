@@ -82,7 +82,7 @@ export default async function ProductPage(props: ProductPageProps) {
                 <div className="flex sm:flex-col1 align-baseline mt-2">
                   <button
                     type="submit"
-                    className={`max-w-xs flex-1 ${"bg-primary-600 hover:bg-primary-700"}
+                    className={`md:max-w-xs flex-1 bg-primary-600 hover:bg-primary-700
                                          transition-colors border border-transparent rounded-md py-3 px-8 flex items-center
                                           justify-center text-base font-medium text-white focus:outline-none
                                           focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-primary-500 sm:w-full`}
