@@ -1,8 +1,8 @@
 import { products } from "@/app/constants/mock-products";
-import { NextApiRequest } from "next";
 import { toLower } from "lodash";
+import { NextRequest } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   const url = new URL(req.url || "");
   const query = url.searchParams;
   const productKey = query.get("product_key");

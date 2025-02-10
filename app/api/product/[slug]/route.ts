@@ -1,8 +1,8 @@
 import { products } from "@/app/constants/mock-products";
-import { NextApiRequest } from "next";
+import { NextRequest } from "next/server";
 
 export async function GET(
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;

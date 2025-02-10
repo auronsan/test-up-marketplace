@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     // a non-locale prefixed path e.g. `/hello`
     defaultLocale: "en-US",
   },
+  output: "standalone",
 };
 
 export default nextConfig;

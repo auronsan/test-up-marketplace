@@ -7,8 +7,13 @@ interface HomePageData {
 }
 
 export default async function Home() {
-  const { data } = await axios.get<HomePageData>("/products");
-  const { products } = data;
+  let products = [];
+  try {
+    const { data } = await axios.get<HomePageData>("/products");
+    products = data.products;
+  } catch (error) {
+    return "There was an error.";
+  }
 
   return (
     <>
