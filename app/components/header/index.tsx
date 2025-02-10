@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { SearchBar } from "./SearchBar";
-import { useScrollingUp } from "../utils/use-scrolling-up";
-import { classNames } from "../utils/class-names";
+import { SearchBar } from "@/app/components/SearchBar";
+import { useScrollingUp } from "@/app/utils/use-scrolling-up";
+import { classNames } from "@/app/utils/class-names";
 import Image from "next/image";
 
 export function Header() {
