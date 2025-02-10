@@ -13,14 +13,15 @@ RUN npm install -g pnpm
 
 # Install dependencies based on the preferred package manager
 COPY package.json pnpm-lock.yaml* .npmrc* ./
-RUN \
-  if [ -f pnpm-lock.yaml ];then pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+
+RUN pnpm i
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
+
+RUN npm install -g pnpm
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
@@ -29,10 +30,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN \
-  if [ -f pnpm-lock.yaml ]; then pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN pnpm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
